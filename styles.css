@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.navbar {
+    margin-top: 2em;
+    position: relative;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 3em;
+    width: 100%;
+    height: 1px;
+    background-color: #828282;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.navbar li:hover {
+    font-size: 19px;
+    cursor: pointer;
+    background-color: rgb(85, 197, 85);
+    transition: all 0.3s ease;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+}
+
+@media (max-width:768px) {
+    .navbar {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        margin-top: 0;
+        background-color: white;
+        transform: translateY(-35em);
+    }
+
+    .navbar.active {
+        transform: translateY(0);
+        
+        transition: all 1s ease;
+    }
+
+    .navbar::after {
+        display: none;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .burger {
+        display: block;
+        width: 40px;
+        top: 20%;
+        left: 91%;
+        padding: 0 20px;
+        height: 25px;
+        position: fixed;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    .burger::after {
+        content: '';
+        position: absolute;
+        top: 15%;
+        left: 12%;
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
+
+    .burger::before {
+        content: '';
+        position: absolute;
+        bottom: 15%;
+        left: 12%;
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
+
+    .burger span {
+        position: absolute;
+        top: 47%;
+        left: 12%;
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
+
+    .burger.active {
+        background-color: transparent;
+    }
+
+    .burger.active::after {
+        transform: rotate(45deg);
+        top: 52%;
+        transition: all 0.3s ease;
+    }
+
+    .burger.active::before {
+        transform: rotate(-45deg);
+        bottom: 40%;
+        transition: all 0.3s ease;
+    }
+
+    .burger.active span {
+        transform: scale(0);
+        transition: all 0.3s ease;
+    }
+}
+
+@media (max-width:768px) {
+    .burger {
+        left: 88%;
+    }
+}
+
+
+.greeting {
+    margin-top: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width:768px) {
+    .greeting {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.greeting__name {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.greeting__desc {
+    font-size: 21px;
+}
+
+
+.props-mobi {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .greeting__props {
+        display: none;
+    }
+
+    .props-mobi {
+        display: block;
+    }
+}
+
+.props__ru {
+    position: relative;
+    padding-right: 5px;
+    color: #828282;
+    cursor: pointer;
+}
+
+.props__ru::after {
+    content: '|';
+    top: -25%;
+    left: 90%;
+    font-size: 20px;
+    position: absolute;
+    color: black;
+}
+
+.props__eng {
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.greeting__photo {
+    max-width: 943px;
+    height: 387px;
+    background-color: black;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+@media (max-width:768px) {
+    .greeting__photo {
+        width: 93%;
+    }
+}
+
+.greeting__theme {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-image: url('./UI/image/night-mode.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .greeting__theme {
+        transform: translateX(6em) translateY(4em);
+    }
+}
+
+.main {
+    background-color: #F6F6F6;
+}
+
+.about {
+    min-height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 48px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 50px 0;
+}
+
+.about div {
+    padding-bottom: 25px;
+}
+
+.about p {
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.about:last-child {
+    padding-bottom: 50px;
+}
+
+.about a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.about a:hover {
+    font-size: 20px;
+    background-color: rgb(85, 197, 85);
+    transition: all 0.3s ease;
+}
+
+.skills {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills h2 {
+    padding: 50px 0;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.skills__wrapper {
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+@media (max-width:768px) {
+    .skills__wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.wrapper__title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #828282;
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width:768px) {
+    .wrapper {
+        padding: 20px 0;
+    }
+}
+
+.portfolio {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio h2 {
+    padding: 50px 0;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+    .portfolio h2,
+    .skills h2,
+    .about h1,
+    .contacts h2 {
+        font-size: 38px;
+    }
+}
+
+.portfolio__content {
+    display: block;
+    width: 100%;
+    max-width: 937px;
+    height: 510px;
+    background-color: black;
+    margin: 40px 0;
+}
+
+.contacts {
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacts h2 {
+    font-size: 48px;
+    font-weight: bolder;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.contacts p {
+    font-size: 18px;
+    max-width: 400px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.contacts__btn {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px 0px #00055535;
+    margin-bottom: 100px;
+    transition: all 0.3s ease;
+}
+
+.contacts__btn:active {
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .contacts__btn {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+}
+
+.contacts__props {
+    width: 30%;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .contacts__props {
+        width: 100%;
+    }
+}
+
+.inst {
+    display: block;
+    background-image: url('./UI/image/instagram.svg');
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.telega {
+    display: block;
+    background-image: url('./UI/image/telegram.svg');
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.whats {
+    display: block;
+    background-image: url('./UI/image/whatsapp.svg');
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
