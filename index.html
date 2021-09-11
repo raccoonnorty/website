@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <header id="general">
+            <nav class="navbar container">
+                <ul>
+                    <li><a href="#general" class="scroll-to">Главная</a></li>
+                    <li><a href="#about" class="scroll-to">Обо мне</a></li>
+                    <li><a href="#skills" class="scroll-to">Навыки</a></li>
+                    <li><a href="#portfolio" class="scroll-to">Портфолио</a></li>
+                    <li><a href="#contacts" class="scroll-to">Контакты</a></li>
+                    <div class="greeting__props props-mobi">
+                        <div class="greeting__theme"></div>
+                        <span class="props__ru">RU</span>
+                        <span class="props__eng">ENG</span>
+                    </div>
+                </ul>
+            </nav>
+            
+            <div class="greeting container flex-container">
+                <div class="greeting__name">
+                    <p>Юрий</p>
+                    <p>Кучмистов</p>
+                </div>
+                <div class="greeting__desc">
+                    <p>Front-end Разработчик</p>
+                    <p>23 года, Москва</p>
+                </div>
+                <div class="greeting__props">
+                    <div class="greeting__theme"></div>
+                    <span class="props__ru">RU</span>
+                    <span class="props__eng">ENG</span>
+                </div>
+            </div>
+            <div class="burger">
+                <span></span>
+            </div>
+            <div class="greeting__photo container"></div>
+        </header>
+        <div class="main" id="about">
+            <div class="about container flex-container">
+                <h1>обо мне</h1>
+                <div>
+                    <p>Привет, я Юрий - Front-end разработчик из Москвы.</p>
+                    <p>Интересуюсь разработкой интерфейсов, дизайном и всем, что с ними связано.</p>
+                </div>
+                <div>
+                    <p>Учусь на курсах "Front-end - разработк" на образовательной платформе <a href="https://skillbox.ru/">SkillBox</a>.</p>
+                    <p>Но я не ограничиваю себя одними курсами, поэтому ещё читаю различные статьи и книги,
+                        просматриваю полезные видео и общаюсь с другими разработчиками.
+                    </p>
+                </div>
+                <p>Готов реализовывать отличные проекты с замечательными людьми.</p>
+            </div>
+            
+        </div>
+        <div id="skills">
+            <div class="skills container flex-container">
+                <h2>навыки</h2>
+                <div class="skills__wrapper flex-container">
+                    <div class="wrapper">
+                        <img src="./UI/image/javascript.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">JavaScript</div>
+                    </div>
+                    <div class="wrapper">
+                        <img src="./UI/image/typescript.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">TypeScript</div>
+                    </div>
+                    <div class="wrapper">
+                        <img src="./UI/image/react.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">ReactJS</div>
+                    </div>
+                    <div class="wrapper">
+                        <img src="./UI/image/redux.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">Redux</div>
+                    </div>
+                    <div class="wrapper">
+                        <img src="./UI/image/html5.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">HTML5</div>
+                    </div>
+                    <div class="wrapper">
+                        <img src="./UI/image/css3.svg" class="wrapper__img"/>
+                        <div class="wrapper__title">CSS3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main" id="portfolio">
+            <div class="portfolio container flex-container">
+                <h2>Портфолио</h2>
+                <a href="http://" class="portfolio__content"></a>
+                <a href="http://" class="portfolio__content"></a>
+                <a href="http://" class="portfolio__content"></a>
+            </div>
+        </div>
+        <footer id="contacts">
+            <div class="contacts container flex-container">
+                <h2>Контакты</h2>
+                <p>Хотите узнать больше или просто поболтать? Добро пожаловать!</p>
+                <a href="mailto:makeroh77@gmail.com" class="contacts__btn">Отправить сообщение</a>
+                <div class="contacts__props flex-container">
+                    <a href="https://www.instagram.com/yuri.kuchmistov/" class="inst" target="_blank"></a>
+                    <a href="https://api.whatsapp.com/send?phone=79165546188" class="whats" target="_blank"></a>
+                    <a href="https://t.me/raccoonnorty/" class="telega" target="_blank"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script src="index.js"></script>
+
+</html>
