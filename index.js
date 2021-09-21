@@ -29,3 +29,54 @@ for (let anchor of anchors) {
     })
   })
 }
+
+//theme
+
+const darkMode = document.querySelectorAll('.greeting__theme')
+// const body = document.querySelector('body')
+
+for (let dm of darkMode) {
+  dm.addEventListener('click', () => {
+    // body.classList.toggle('dark')
+    if (!document.body.getAttribute('id')) {
+      setDarkTheme()  
+    } else {
+      setLightTheme()
+    }
+  })
+}
+
+let setDarkTheme = () => {
+  document.body.setAttribute('id', 'dark')
+  // document.body.classList.remove('light')
+  localStorage.setItem("theme", "dark")
+  // localStorage.clear()
+}
+
+let setLightTheme = () => {
+  document.body.removeAttribute('id')
+  // document.body.classList.add('light')
+  localStorage.setItem("theme", "light")
+  // localStorage.clear()
+}
+
+// let getTheme = () => {
+//   let item = localStorage.getItem("theme")
+//   if (item) {
+//     return item
+//   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+//     return "dark"
+//   } else {
+//     return "light"
+//   }
+// }
+
+// document.addEventListener('DOMContentLoader', () => {
+//   let theme = getTheme()
+  
+//   if (theme === "light") {
+//     setLightTheme()
+//   }
+// })
+
+console.log(localStorage.getItem('theme'));
