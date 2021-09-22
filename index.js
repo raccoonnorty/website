@@ -32,51 +32,51 @@ for (let anchor of anchors) {
 
 //theme
 
-const darkMode = document.querySelectorAll('.greeting__theme')
-// const body = document.querySelector('body')
+const darkModeBtn = document.querySelectorAll('.greeting__theme')
+let darkMode = localStorage.getItem('darkMode')
 
-for (let dm of darkMode) {
+const enableDarkMode = () => {
+  document.body.classList.add('dark')
+  localStorage.setItem("darkMode", "enabled")
+}
+
+const disableDarkMode = () => {
+  document.body.classList.remove('dark')
+  localStorage.setItem("darkMode", null)
+}
+
+if (darkMode === 'enabled') {
+  enableDarkMode()
+}
+
+for (let dm of darkModeBtn) {
   dm.addEventListener('click', () => {
-    // body.classList.toggle('dark')
-    if (!document.body.getAttribute('id')) {
-      setDarkTheme()  
+    darkMode = localStorage.getItem('darkMode')
+    if (darkMode !== 'enabled') {
+      enableDarkMode()
+      console.log(darkMode)
     } else {
-      setLightTheme()
+      disableDarkMode()
+      console.log(darkMode)
     }
   })
 }
 
-let setDarkTheme = () => {
-  document.body.setAttribute('id', 'dark')
-  // document.body.classList.remove('light')
-  localStorage.setItem("theme", "dark")
-  // localStorage.clear()
+let getTheme = () => {
+  darkMode = localStorage.getItem("darkMode")
+  if (darkMode) {
+    return darkMode
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return null
+  } else {
+    return "enabled"
+  }
 }
 
-let setLightTheme = () => {
-  document.body.removeAttribute('id')
-  // document.body.classList.add('light')
-  localStorage.setItem("theme", "light")
-  // localStorage.clear()
-}
-
-// let getTheme = () => {
-//   let item = localStorage.getItem("theme")
-//   if (item) {
-//     return item
-//   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//     return "dark"
-//   } else {
-//     return "light"
-//   }
-// }
-
-// document.addEventListener('DOMContentLoader', () => {
-//   let theme = getTheme()
+document.addEventListener('DOMContentLoader', () => {
+  let theme = getTheme()
   
-//   if (theme === "light") {
-//     setLightTheme()
-//   }
-// })
-
-console.log(localStorage.getItem('theme'));
+  if (theme === "enabled") {
+    enableDarkMode()
+  }
+})
