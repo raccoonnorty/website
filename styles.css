@@ -71,6 +71,7 @@ body {
         margin-top: 0;
         background-color: white;
         transform: translateX(80em);
+        z-index: 1;
     }
 
     .navbar.active {
@@ -107,6 +108,7 @@ body {
         position: fixed;
         /* background-color: white; */
         transition: all 0.3s ease;
+        z-index: 2;
     }
 
     .burger::after {
@@ -251,19 +253,6 @@ body {
         width: 93%;
     }
 }
-
-/* .greeting__theme {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 50px;
-    border-radius: 50%;
-    background-image: url('./UI/image/night-mode.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    cursor: pointer;
-    transition: all 0.5s;
-} */
 
 .greeting__theme {
     position: relative;
