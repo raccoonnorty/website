@@ -62,21 +62,19 @@ for (let dm of darkModeBtn) {
   })
 }
 
-let getTheme = () => {
-  darkMode = localStorage.getItem("darkMode")
-  if (darkMode) {
-    return darkMode
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return null
-  } else {
-    return "enabled"
-  }
-}
+// swiper
 
-document.addEventListener('DOMContentLoader', () => {
-  let theme = getTheme()
-  
-  if (theme === "enabled") {
-    enableDarkMode()
-  }
-})
+var swiper = new Swiper(".swiper-container", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 2,
+    slideShadows: true,
+  },
+  loop: true,
+});

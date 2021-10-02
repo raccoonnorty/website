@@ -50,7 +50,7 @@ body {
 }
 
 .navbar li:hover {
-    font-size: 19px;
+    /* font-size: 19px; */
     cursor: pointer;
     background-color: rgb(85, 197, 85);
     transition: all 0.3s ease;
@@ -252,7 +252,7 @@ body {
     }
 }
 
-.greeting__theme {
+/* .greeting__theme {
     width: 30px;
     height: 30px;
     margin-bottom: 50px;
@@ -263,6 +263,32 @@ body {
     background-size: 20px;
     cursor: pointer;
     transition: all 0.5s;
+} */
+
+.greeting__theme {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 36px;
+    border-radius: 36px;
+    background: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: inset -5px 5px 10px #d9d9d9,
+                inset 5px -5px 10px #ffffff;
+}
+
+.greeting__theme .indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid rgba(221, 221, 221, 0.767);
+    transform: scale(0.9);
+    transition: 0.5s;
 }
 
 .main {
@@ -358,13 +384,25 @@ body {
     }
 }
 
-.portfolio {
+#portfolio {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    
+    overflow: hidden;
 }
 
-.portfolio h2 {
+/* .portfolio {
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+} */
+
+#portfolio h2 {
     padding: 50px 0;
     text-transform: uppercase;
     font-size: 48px;
@@ -372,7 +410,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .portfolio h2,
+    #portfolio h2,
     .skills h2,
     .about h1,
     .contacts h2 {
@@ -380,45 +418,34 @@ body {
     }
 }
 
-.portfolio__content {
-    display: block;
+/* swiper */
+.swiper-container {
     width: 100%;
-    height: 100%;
-    max-width: 937px;
-    height: 510px;
-    /* background-color: black; */
-    margin: 40px 0;
-    border: 1px solid #000;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 500px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    filter: blur(4px);
 }
 
 @media (max-width: 767px) {
-    .portfolio__content {
-        height: 184px;
+    .swiper-slide {
+        width: 300px;
     }
 }
 
-.content1 {
-    background-image: url('./UI/image/p1.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fdd0bb;
+.swiper-slide-active {
+    filter: blur(0px);
 }
 
-.content2 {
-    background-image: url('./UI/image/p2.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fff;
-}
-
-.content3 {
-    background-image: url('./UI/image/p3.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #063a76;
+.swiper-slide img {
+    display: block;
+    width: 100%;
 }
 
 .contacts {
@@ -443,20 +470,32 @@ body {
 }
 
 .contacts__btn {
+    position: relative;
     text-decoration: none;
     color: white;
-    background-color: black;
+    background-color: #1c1a1b;
     padding: 20px 40px;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     font-size: 18px;
-    font-weight: bold;
+    font-weight: lighter;
+    letter-spacing: 2px;
     box-shadow: 0px 5px 10px 0px #00055535;
     margin-bottom: 100px;
     transition: all 0.3s ease;
 }
 
-.contacts__btn:active {
-    transform: scale(0.9);
+.contacts__btn::before,
+.contacts__btn::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, #00ccff, #fff, #d400d4);
+    
+    z-index: -1;
+}
+
+.contacts__btn::after {
+    filter: blur(10px);
 }
 
 @media (max-width: 768px) {
@@ -514,7 +553,7 @@ body {
 }
 
 body.dark {
-    background-color: #000;
+    background-color: #1c1a1b;
     color: #fff;
 }
 
@@ -525,13 +564,13 @@ body.dark {
 
 body.dark #portfolio,
 body.dark #about {
-    background-color: #04080d;
+    background-color: #182221;
     color: #fff;
 }
 
 @media (max-width: 768px) {
     body.dark .navbar {
-        background-color: #000;
+        background-color: #1c1a1b;
     }   
 }
 
@@ -553,28 +592,31 @@ body.dark .burger span {
 }
 
 body.dark .greeting__theme {
-    background-color: #fff;
-    background-image: url('./UI/image/sun.svg');
+    background: #1c1a1b;
+    box-shadow: inset -18px 18px 36px #161415,
+            inset 18px -18px 36px #222021;
+}
+
+body.dark .greeting__theme .indicator {
+    left: 20px;
+    background: #1c1a1b;
+    border: 1px solid #1e1e1e;
+}
+
+body.dark .greeting__photo {
+    margin-bottom: 0;
+    border-top: 5px solid #182221;
+    border-left: 5px solid #182221;
+    border-right: 5px solid #182221;
 }
 
 body.dark .contacts__btn {
-    background-color: #fff;
-    color: #000;
+    background-color: #242424;
+    color: #fff;
     box-shadow: 0px 5px 10px 0px #ffffff35;
 }
 
-body.dark .inst {
-    background-image: url('./UI/image/instagram-dm.svg');
-}
-
-body.dark .whats {
-    background-image: url('./UI/image/whatsapp-dm.svg');
-}
-
-body.dark .telega {
-    background-image: url('./UI/image/telegram-dm.svg');
-}
-
-body.dark .redux_dark {
-    background-image: url('./UI/image/redux-dm.svg')
+body.dark .contacts__btn::before,
+body.dark .contacts__btn::after {
+    background: linear-gradient(45deg, #00ccff, #1c1a1b, #d400d4);
 }
