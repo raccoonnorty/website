@@ -71,11 +71,7 @@ body {
         margin-top: 0;
         background-color: white;
         transform: translateX(80em);
-<<<<<<< HEAD
         z-index: 999;
-=======
-        z-index: 99;
->>>>>>> a70980307a48bc95128474dbf3ed50a8d61b0125
     }
 
     .navbar.active {
