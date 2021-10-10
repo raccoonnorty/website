@@ -36,12 +36,12 @@ const darkModeBtn = document.querySelectorAll('.greeting__theme')
 let darkMode = localStorage.getItem('darkMode')
 
 const enableDarkMode = () => {
-  document.body.classList.add('dark')
+  document.body.classList.toggle('dark')
   localStorage.setItem("darkMode", "enabled")
 }
 
 const disableDarkMode = () => {
-  document.body.classList.remove('dark')
+  document.body.classList.toggle('dark')
   localStorage.setItem("darkMode", null)
 }
 

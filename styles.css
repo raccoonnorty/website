@@ -432,6 +432,10 @@ body {
     width: 100%;
 }
 
+.swiper-slide p {
+    text-align: center;
+}
+
 .contacts {
     height: 100vh;
     flex-direction: column;
